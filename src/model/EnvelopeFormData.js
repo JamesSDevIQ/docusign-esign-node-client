@@ -53,6 +53,7 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      console.log( 's/m/EFD:constructFromObject', data);
 
       if (data.hasOwnProperty('emailSubject')) {
         obj['emailSubject'] = ApiClient.convertToType(data['emailSubject'], 'String');
@@ -64,7 +65,6 @@
         obj['formData'] = ApiClient.convertToType(data['formData'], [FormDataItem]);
       }
       if (data.hasOwnProperty('prefillFormData')) {
-        console.log( 'constructFromObject.prefillFormData', data);
         obj['prefillFormData'] = ApiClient.convertToType(data['prefillFormData'], [FormDataItem]);
       }
       if (data.hasOwnProperty('recipientFormData')) {
