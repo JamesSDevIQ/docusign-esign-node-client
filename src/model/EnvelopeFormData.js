@@ -65,7 +65,11 @@
         obj['formData'] = ApiClient.convertToType(data['formData'], [FormDataItem]);
       }
       if (data.hasOwnProperty('prefillFormData')) {
-        obj['prefillFormData'] = ApiClient.convertToType(data['prefillFormData'], [FormDataItem]);
+		if (Array.isArray( data['prefillFormData'])) {
+          obj['prefillFormData'] = ApiClient.convertToType(data['prefillFormData'], [FormDataItem]);
+		} else {
+          obj['prefillFormData'] = ApiClient.convertToType(data['prefillFormData']['formData'], [FormDataItem]);
+		}
       }
       if (data.hasOwnProperty('recipientFormData')) {
         obj['recipientFormData'] = ApiClient.convertToType(data['recipientFormData'], [RecipientFormData]);
