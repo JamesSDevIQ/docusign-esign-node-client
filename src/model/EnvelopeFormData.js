@@ -64,6 +64,7 @@
         obj['formData'] = ApiClient.convertToType(data['formData'], [FormDataItem]);
       }
       if (data.hasOwnProperty('prefillFormData')) {
+        console.log( 'constructFromObject.prefillFormData', data);
         obj['prefillFormData'] = ApiClient.convertToType(data['prefillFormData'], [FormDataItem]);
       }
       if (data.hasOwnProperty('recipientFormData')) {
