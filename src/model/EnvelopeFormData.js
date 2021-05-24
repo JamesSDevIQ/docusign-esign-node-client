@@ -53,7 +53,7 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      console.log( 's/m/EFD:constructFromObject', data);
+      //console.log( 's/m/EFD:constructFromObject', data);
 
       if (data.hasOwnProperty('emailSubject')) {
         obj['emailSubject'] = ApiClient.convertToType(data['emailSubject'], 'String');
@@ -65,6 +65,7 @@
         obj['formData'] = ApiClient.convertToType(data['formData'], [FormDataItem]);
       }
       if (data.hasOwnProperty('prefillFormData')) {
+		// data from API, in prod: prefillFormData: [], and in the sandbox: prefillFormData: { formData: [] },
 		if (Array.isArray( data['prefillFormData'])) {
           obj['prefillFormData'] = ApiClient.convertToType(data['prefillFormData'], [FormDataItem]);
 		} else {
